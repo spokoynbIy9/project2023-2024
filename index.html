@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CarHub</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style for index.css">
+</head>
+<body>
+    <section class="modal-hidden">
+        <div class="modal" id="modal_bid">
+            <form method="POST" class="modal_form">
+                <h2 class="modal_form_title">Заявка</h2>
+                <label for="fio" class="form_label">ФИО</label>
+                <input type="text" name="fio" id="fio" class="form_input">
+                <label for="phone" class="form_label">Телефон</label>
+                <input type="text" name="phone" id="phone" class="form_input">
+                <label for="email" class="form_label">Адрес электронной почты</label>
+                <input type="email" name="email" id="email" class="form_input">
+                <h3 class="info_cars_title">Данные об автомобиле</h3>
+                    <ul class="flex info_cars_list list-reset">
+                        <li class="flex cars_item">
+                            <label for="gos_number" class="cars_item_subtitle flex">Гос-номер</label>
+                            <input type="text" name="gos_number" id="gos_number" class="form_input">
+                        </li>
+                        <li>
+                            <label for="vin_code" class="cars_item_subtitle flex">vin-код</label>
+                            <input type="text" name="vin_code" id="vin_code" class="form_input">
+                        </li>
+                    </ul>
+                <label for="works" class="form_label">Регламентные работы</label>
+                <input type="text" name="works" id="works" class="form_input">
+                <label for="comment" class="form_label">Комментарий</label>
+                <textarea name="comment" id="comment" cols="30" rows="10" class="form_input_com"></textarea>
+                <button class="submit_btn">Отправить</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="modal-hidden_authorization">
+        <div class="modal_authorization" id="modal_authorization">
+            <form method="POST" class="modal_form_authorization">
+                <h2 class="modal_form_authorization_title">Авторизация</h2>
+                <label for="phone" class="form_label">Телефон</label>
+                <input type="text" name="phone_authorization" id="phone_authorization" class="form_input">
+                <label for="email" class="form_label">Пароль</label>
+                <input type="password" name="password_authorization" id="password_authorization" class="form_input">
+                <button class="entry_btn">Войти</button>
+                <div class="container_telegram">
+                    <svg class="telegram" xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" fill="none">
+                        <rect width="35" height="35" rx="17.5" fill="#2AA1DA"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M10.8067 19.3478C10.8497 19.3624 10.8931 19.3726 10.9365 19.3789C10.9839 19.4902 11.045 19.634 11.1163 19.8022C11.2904 20.2128 11.525 20.7682 11.7671 21.3474C12.2609 22.5289 12.759 23.7467 12.869 24.0953C13.0051 24.5262 13.1491 24.8192 13.3062 25.0192C13.3875 25.1227 13.4814 25.2129 13.5914 25.2813C13.6467 25.3158 13.7052 25.344 13.7662 25.365C13.7689 25.366 13.7716 25.3669 13.7743 25.3678C14.0889 25.4865 14.3758 25.4371 14.5554 25.3766C14.6514 25.3442 14.7292 25.3051 14.7843 25.2735C14.8124 25.2573 14.8361 25.2422 14.8551 25.2294L14.8595 25.2265L17.638 23.4937L20.8476 25.9543C20.8949 25.9906 20.9466 26.0211 21.0012 26.0449C21.3868 26.2132 21.7602 26.2719 22.1114 26.2239C22.4621 26.176 22.7404 26.0287 22.9476 25.8629C23.1506 25.7006 23.2882 25.5187 23.3738 25.3836C23.4176 25.3146 23.4504 25.2535 23.4736 25.2068C23.4852 25.1833 23.4946 25.1631 23.5018 25.1469L23.5111 25.1254L23.5146 25.117L23.5161 25.1134L23.5167 25.1118L23.5174 25.1102C23.5342 25.068 23.5472 25.0244 23.556 24.9798L26.4859 10.2078C26.4953 10.1605 26.5 10.1125 26.5 10.0643C26.5 9.63174 26.337 9.2204 25.9538 8.97079C25.6262 8.75745 25.2613 8.74827 25.0307 8.76577C24.7819 8.78465 24.5521 8.84607 24.398 8.89514C24.3177 8.92068 24.2504 8.94532 24.2019 8.96411C24.1775 8.97356 24.1576 8.98167 24.1426 8.98786L24.1315 8.99256L7.69969 15.4385L7.69756 15.4393C7.68709 15.4431 7.67364 15.4481 7.65767 15.4543C7.62585 15.4667 7.58322 15.4841 7.53342 15.5067C7.43631 15.5508 7.30006 15.6195 7.16025 15.7153C6.93689 15.8682 6.42322 16.2872 6.50971 16.9786C6.57872 17.5302 6.95662 17.869 7.18686 18.0319C7.31328 18.1214 7.43339 18.1853 7.52086 18.227C7.56143 18.2462 7.64568 18.2805 7.68224 18.2954L7.69147 18.2991L10.8067 19.3478ZM24.7066 10.3505L24.7043 10.3515C24.696 10.355 24.6879 10.3584 24.6795 10.3617L8.22778 16.8155C8.21918 16.8188 8.21053 16.8221 8.20182 16.8251L8.19267 16.8286C8.18214 16.8327 8.16442 16.8399 8.14219 16.8499C8.12957 16.8556 8.11641 16.8619 8.10299 16.8686C8.12142 16.879 8.13907 16.8879 8.15475 16.8954C8.1698 16.9026 8.18129 16.9075 8.18757 16.9101L11.2772 17.9502C11.3337 17.9693 11.3865 17.9945 11.4348 18.0249L21.6366 12.0529L21.6462 12.0472C21.6535 12.0428 21.6634 12.0372 21.6751 12.0306C21.6983 12.0175 21.7301 12 21.7681 11.9807C21.8389 11.9446 21.9522 11.8911 22.0798 11.8517C22.1686 11.8242 22.4306 11.7469 22.7139 11.8377C22.8887 11.8938 23.0697 12.0143 23.1874 12.2185C23.2458 12.32 23.277 12.4219 23.2921 12.5152C23.3322 12.6621 23.3259 12.8073 23.2945 12.9325C23.2269 13.2024 23.0373 13.4129 22.8648 13.5739C22.7169 13.712 20.8043 15.5562 18.9176 17.3768C17.9766 18.2846 17.0454 19.1836 16.3492 19.8554L15.8921 20.2969L21.665 24.7227C21.7974 24.7701 21.8756 24.7678 21.9118 24.7627C21.955 24.7568 21.9903 24.7402 22.0264 24.7114C22.0667 24.6792 22.102 24.6355 22.1283 24.5939L22.1294 24.5923L24.9711 10.2651C24.929 10.2752 24.8863 10.2873 24.8452 10.3004C24.7987 10.3152 24.7602 10.3293 24.7349 10.3392C24.7222 10.344 24.7132 10.3478 24.7082 10.3498L24.7066 10.3505ZM16.388 22.5354L15.2362 21.6523L14.9572 23.4275L16.388 22.5354ZM14.1797 19.9002L15.325 18.7944C16.0212 18.1225 16.9526 17.2235 17.8937 16.3155L18.8497 15.3931L12.4396 19.1455L12.474 19.2266C12.6487 19.6387 12.8844 20.1964 13.1278 20.7788C13.3098 21.2142 13.5001 21.6728 13.6734 22.0973L13.9517 20.3272C13.9785 20.1566 14.0619 20.0089 14.1797 19.9002Z" fill="white"/>
+                    </svg>
+                </div>
+                <a class="btn-reset btn_register">Зарегистрироваться</a>             
+            </form>
+            
+        </div>
+    </section>
+
+    <section class="modal-hidden_registration">
+        <div class="modal_registration" id="modal_registration">
+            <form method="POST" class="modal_form_registration">
+                <label for="fio_reg" class="form_label">ФИО</label>
+                <input type="text" name="fio_reg" id="fio_reg" class="form_input">
+                <label for="phone_reg" class="form_label">Телефон</label>
+                <input type="text" name="phone_reg" id="phone_reg" class="form_input">
+                <label for="telegram_reg" class="form_label">Telegram Username</label>
+                <input type="text" name="telegram_reg" id="telegram_reg" class="form_input">
+                <label for="password_reg" class="form_label">Пароль</label>
+                <input type="password" name="password_reg" id="password_reg" class="form_input">
+                <button class="submit_btn">Зарегистрироваться</button>
+            </form>
+        </div>
+    </section>
+    <div class="container-grey">
+        <header class="container-header">
+            <div class="header-upper flex">
+                <div class="local-phone flex">
+                    <p class="text-reset local">Екатеринбург</p>
+                    <p class="text-reset phone">+7 999 999-99-99</p>
+                </div>
+                <a href="#" class="personal-area">Личный кабинет</a>
+            </div>
+            <div class="header-lower flex">
+                <div class="logo-nav flex">
+                    <a href="#" class="logo-link"><img src="img/Logo.png" alt="" class="logo-img"></a>
+                    <div class="header-list-save flex">
+                        <ul class="header-lower-list list-reset flex">
+                            <li class="header-lower-list-item"><a href="#about-us" class="list-item-link">О нас</a></li>
+                            <li class="header-lower-list-item"><a href="#services" class="list-item-link">Услуги</a></li>
+                            <li class="header-lower-list-item"><a href="#stock" class="list-item-link">Акции</a></li>
+                            <li class="header-lower-list-item"><a href="#our_works" class="list-item-link">Наши работы</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <button class="btn-reset btn">Онлайн запись</button>
+            </div>
+        </header>
+
+        <main>
+            <section class="about-us" id="about-us">
+                <div class="container-darkgrey darkgrey-about-us">
+                    <h2 class="section-title">О нас</h2>
+                    <img src="img/about-us.jpg" width="1220" height="480" alt="" class="img-about-us">
+                    <p class="about-us-alone-descr">
+                        Мы являемся надежным и профессиональным автосервисом, на рынке нас знают уже больше 10 лет! Спектр услуг предоставляемый нашей компанией поражает воображение. Нам доверяют самые разные слои общества от обычного работяги до Снупи Дога, поэтому и ты стань частью нашей семьи.
+                    </p>
+                    <h3 class="third-title-about-us">Почему вы должны выбрать именно нас</h3>    
+                    <ul class="about-us-info-list list-reset">
+                        <li class="about-us-list-item"><p class="about-us-list-item-descr">В нашем автосервисе мы ценим качество и предлагаем высококлассное обслуживание для каждого клиента. Наша команда состоит из опытных и квалифицированных специалистов, которые обладают глубокими знаниями и навыками в области автомобильного ремонта.</p></li>
+                        <li class="about-us-list-item"><p class="about-us-list-item-descr">Мы предлагаем широкий спектр услуг, включая ремонт и замену двигателей, ходовой части, тормозной системы, электрики, а также шиномонтаж, покраску, диагностику и многое другое. Наш автосервис оснащен современным оборудованием и использует только высококачественные запчасти и материалы.</p></li>
+                        <li class="about-us-list-item"><p class="about-us-list-item-descr">Наша главная цель - обеспечить безопасность и надежность вашего автомобиля. Мы стремимся к полному удовлетворению наших клиентов и предлагаем честные цены, прозрачные условия и качественное обслуживание.</p></li>
+                        <li class="about-us-list-item"><p class="about-us-list-item-descr">Мы гордимся своей репутацией надежного автосервиса, на который можно положиться. Независимо от марки и модели вашего автомобиля, мы готовы предложить вам высококлассное обслуживание и решить любые проблемы, с которыми вы столкнетесь.</p></li>
+                        <li class="about-us-list-item"><p class="about-us-list-item-descr">Если вам требуется профессиональное обслуживание и ремонт вашего автомобиля, обратитесь в наш автосервис. Мы готовы помочь вам с любыми вопросами и привести ваш автомобиль в идеальное состояние. Доверьте свой автомобиль нам, и вы получите качественное обслуживание и уверенность на дороге.</p></li>
+                    </ul>
+                    <div class="review-map flex">
+                        <div class="review">
+                            <h3 class="third-title-review">Отзывы</h3>
+                            <div style="width:560px;height:500px;overflow:hidden;position:relative;"><iframe style="width:100%;height:100%;border:1px solid #e6e6e6;border-radius:10px;box-sizing:border-box" src="https://yandex.ru/maps-reviews-widget/6415198560?comments"></iframe><a href="https://yandex.ru/maps/org/krutyashchiy_moment/6415198560/" target="_blank" style="box-sizing:border-box;text-decoration:none;color:#b3b3b3;font-size:10px;font-family:YS Text,sans-serif;padding:0 20px;position:absolute;bottom:8px;width:100%;text-align:center;left:0;overflow:hidden;text-overflow:ellipsis;display:block;max-height:14px;white-space:nowrap;padding:0 16px;box-sizing:border-box">CarHub на карте Москвы — Яндекс Карты</a></div>                              
+                        </div>
+                        <div class="map">
+                            <h3 class="third-title-map">Где нас найти</h3>
+                            <div style="position:relative;overflow:hidden;border-radius: 10px;"><a href="https://yandex.ru/maps/org/krutyashchiy_moment/6415198560/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">CarHub</a><a href="https://yandex.ru/maps/213/moscow/category/car_service_auto_repair/184105246/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:14px;">Автосервис, автотехцентр в Москве</a><iframe src="https://yandex.ru/map-widget/v1/?ll=37.721013%2C55.755201&mode=search&oid=6415198560&ol=biz&tab=reviews&utm_content=more-reviews&utm_medium=reviews&utm_source=maps-reviews-widget&z=16.64" width="560" height="500" frameborder="1" allowfullscreen="true" style="position:relative;"></iframe></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="services" id="services">
+                <div class="container-darkgrey darkgrey-services">
+                    <h3 class="section-title">Услуги</h3>
+                    <ul class="services-list list-reset flex">
+                        <li class="services-list-items">
+                            <div class="services-list-items-cards">
+                                <img class="cards-img" src="img/services_1.png" alt="">
+                                <h3 class="cards-title">Замена ремня ГРМ</h3>
+                                <p class="cards-descr">Замена ремня ГРМ — одно из самых ответственных мероприятий по обслуживанию автомобиля. Ремень ГРМ отвечает за синхронизацию работы двигателя, и его поломка может привести к серьезным повреждениям и дорогому ремонту.</p>
+                                <ul class="services-list-halfsave">
+                                    <li class="services-list-halfsave-items">Время выполнения: от 1 часа</li>
+                                    <li class="services-list-halfsave-items">Подбор запчастей: Нет</li>
+                                    <li class="services-list-halfsave-items">Установка и настройка: Да</li>
+                                </ul>
+                                <p class="cards-price">1 500₽</p>
+                            </div>
+                        </li>
+                        <li class="services-list-items">
+                            <div class="services-list-items-cards">
+                                <img class="cards-img" src="img/services_2.png" alt="">
+                                <h3 class="cards-title">Блок цилиндров</h3>
+                                <p class="cards-descr">Блок цилиндров — это основа двигателя, в котором происходит сгорание топливо-воздушной смеси. Чтобы двигатель работал на максимальной мощности и был долговечным, необходимо регулярно обслуживать блок цилиндров.</p>
+                                <ul class="services-list-halfsave">
+                                    <li class="services-list-halfsave-items">Время выполнения: от 4 часа</li>
+                                    <li class="services-list-halfsave-items">Подбор запчастей: Да</li>
+                                </ul>
+                                <p class="cards-price-2">4 000₽</p>
+                            </div>
+                        </li>
+                        <li class="services-list-items">
+                            <div class="services-list-items-cards">
+                                <img class="cards-img" src="img/services_2.png" alt="">
+                                <h3 class="cards-title">Замена ремня ГРМ</h3>
+                                <p class="cards-descr">Замена ремня ГРМ — одно из самых ответственных мероприятий по обслуживанию автомобиля. Ремень ГРМ отвечает за синхронизацию работы двигателя, и его поломка может привести к серьезным повреждениям и дорогому ремонту.</p>
+                                <ul class="services-list-halfsave">
+                                    <li class="services-list-halfsave-items">Время выполнения: от 1 часа</li>
+                                    <li class="services-list-halfsave-items">Подбор запчастей: Нет</li>
+                                    <li class="services-list-halfsave-items">Установка и настройка: Да</li>
+                                </ul>
+                                <p class="cards-price">1 500₽</p>
+                            </div>
+                        </li>
+                        <li class="services-list-items">
+                            <div class="services-list-items-cards">
+                                <img class="cards-img" src="img/services_1.png" alt="">
+                                <h3 class="cards-title">Замена ремня ГРМ</h3>
+                                <p class="cards-descr">Замена ремня ГРМ — одно из самых ответственных мероприятий по обслуживанию автомобиля. Ремень ГРМ отвечает за синхронизацию работы двигателя, и его поломка может привести к серьезным повреждениям и дорогому ремонту.</p>
+                                <ul class="services-list-halfsave">
+                                    <li class="services-list-halfsave-items">Время выполнения: от 1 часа</li>
+                                    <li class="services-list-halfsave-items">Подбор запчастей: Нет</li>
+                                    <li class="services-list-halfsave-items">Установка и настройка: Да</li>
+                                </ul>
+                                <p class="cards-price">1 500₽</p>
+                            </div>
+                        </li>
+                        <li class="services-list-items">
+                            <div class="services-list-items-cards">
+                                <img class="cards-img" src="img/services_1.png" alt="">
+                                <h3 class="cards-title">Замена ремня ГРМ</h3>
+                                <p class="cards-descr">Замена ремня ГРМ — одно из самых ответственных мероприятий по обслуживанию автомобиля. Ремень ГРМ отвечает за синхронизацию работы двигателя, и его поломка может привести к серьезным повреждениям и дорогому ремонту.</p>
+                                <ul class="services-list-halfsave">
+                                    <li class="services-list-halfsave-items">Время выполнения: от 1 часа</li>
+                                    <li class="services-list-halfsave-items">Подбор запчастей: Нет</li>
+                                    <li class="services-list-halfsave-items">Установка и настройка: Да</li>
+                                </ul>
+                                <p class="cards-price">1 500₽</p>
+                            </div>
+                        </li>
+                        <li class="services-list-items">
+                            <div class="services-list-items-cards">
+                                <img class="cards-img" src="img/services_1.png" alt="">
+                                <h3 class="cards-title">Замена ремня ГРМ</h3>
+                                <p class="cards-descr">Замена ремня ГРМ — одно из самых ответственных мероприятий по обслуживанию автомобиля. Ремень ГРМ отвечает за синхронизацию работы двигателя, и его поломка может привести к серьезным повреждениям и дорогому ремонту.</p>
+                                <ul class="services-list-halfsave">
+                                    <li class="services-list-halfsave-items">Время выполнения: от 1 часа</li>
+                                    <li class="services-list-halfsave-items">Подбор запчастей: Нет</li>
+                                    <li class="services-list-halfsave-items">Установка и настройка: Да</li>
+                                </ul>
+                                <p class="cards-price">1 500₽</p>
+                            </div>
+                        </li>
+                        <li class="services-list-items">
+                            <div class="services-list-items-cards">
+                                <img class="cards-img" src="img/services_1.png" alt="">
+                                <h3 class="cards-title">Замена ремня ГРМ</h3>
+                                <p class="cards-descr">Замена ремня ГРМ — одно из самых ответственных мероприятий по обслуживанию автомобиля. Ремень ГРМ отвечает за синхронизацию работы двигателя, и его поломка может привести к серьезным повреждениям и дорогому ремонту.</p>
+                                <ul class="services-list-halfsave">
+                                    <li class="services-list-halfsave-items">Время выполнения: от 1 часа</li>
+                                    <li class="services-list-halfsave-items">Подбор запчастей: Нет</li>
+                                    <li class="services-list-halfsave-items">Установка и настройка: Да</li>
+                                </ul>
+                                <p class="cards-price">1 500₽</p>
+                            </div>
+                        </li>
+                        <li class="services-list-items">
+                            <div class="services-list-items-cards">
+                                <img class="cards-img" src="img/services_1.png" alt="">
+                                <h3 class="cards-title">Замена ремня ГРМ</h3>
+                                <p class="cards-descr">Замена ремня ГРМ — одно из самых ответственных мероприятий по обслуживанию автомобиля. Ремень ГРМ отвечает за синхронизацию работы двигателя, и его поломка может привести к серьезным повреждениям и дорогому ремонту.</p>
+                                <ul class="services-list-halfsave">
+                                    <li class="services-list-halfsave-items">Время выполнения: от 1 часа</li>
+                                    <li class="services-list-halfsave-items">Подбор запчастей: Нет</li>
+                                    <li class="services-list-halfsave-items">Установка и настройка: Да</li>
+                                </ul>
+                                <p class="cards-price">1 500₽</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="stock" id="stock">
+                <div class="container-darkgrey darkgrey-stock">
+                    <h2 class="section-title-stock">Акции</h2>
+                    <p class="stock-descr">
+                        Наша цель — помочь нашим клиентам поддерживать их автомобили в отличном состоянии, не переплачивая за это больше, чем необходимо. Поэтому мы постоянно работаем над тем, чтобы предоставлять самые лучшие предложения для наших клиентов. Мы убеждены, что обслуживание автомобиля не должно быть дорогостоящим и неудобным для наших клиентов, поэтому мы стараемся сделать его доступным. 
+                    </p>
+                    <ul class="stock-list list-reset flex">
+                        <li class="stock-list-items">
+                            <div class="stock-card-1">
+                                <h3 class="stock-card-title">Бесплатная замена масла</h3>
+                                <div class="flex stock-card-time-price">
+                                    <div class="stock-card-containerfortime"><p class="stock-card-time"></p></div>
+                                    <p class="stock-card-price">2 000₽</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="stock-list-items">
+                            <div class="stock-card-2">
+                                <h3 class="stock-card-title">Приведи друга —  получи скидку на шиномонтаж</h3>
+                                <div class="flex stock-card-time-price-2">
+                                    <div class="stock-card-containerfortime"><p class="stock-card-time"></p></div>
+                                    <p class="stock-card-price">-10%</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="stock-list-items">
+                            <div class="stock-card-3">
+                                <h3 class="stock-card-title">“Счастливые” часы на компьютерную диагностику</h3>
+                                <div class="flex stock-card-time-price-3">
+                                    <div class="stock-card-containerfortime"><p class="stock-card-time"></p></div>
+                                    <p class="stock-card-price">2 000₽</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="stock-list-items">
+                            <div class="stock-card-4">
+                                <h3 class="stock-card-title">Скидка 25% при первой записи через наш сайт</h3>
+                                <div class="flex stock-card-time-price-4">
+                                    <div class="stock-card-containerfortime"><p class="stock-card-time"></p></div>
+                                    <button class="btn-reset btn-stock">Онлайн запись</button>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="works" id="our_works">
+                <div class="container-darkgrey darkgrey-works">
+                    <h2 class="section-title-works">Наши Работы</h2>
+                    <ul class="works-list list-reset">
+                        <li class="works-list-items">
+                            <div class="works-list-items-grey-container">
+                                <h3 class="third-title-works-list">Сделали тюнинг премиум автомобиля</h3>
+                                <div class="flex items-doposle">
+                                    <div class="items-doposle-do-container">
+                                        <h3 class="items-doposle-do">До</h3>
+                                        <img src="./img/work_1.png" alt="" class="first-item-do">
+                                    </div>
+                                    <div>
+                                        <h3 class="items-doposle-posle">После</h3>
+                                        <img src="./img/work_2.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="works-list-items">
+                            <div class="works-list-items-grey-container">
+                                <h3 class="third-title-works-list">Отремонтировали кузов автомобиля</h3>
+                                <div class="flex items-doposle">
+                                    <div class="items-doposle-do-container">
+                                        <h3 class="items-doposle-do">До</h3>
+                                        <img src="./img/work_3.png" alt="" class="first-item-do">
+                                    </div>
+                                    <div>
+                                        <h3 class="items-doposle-posle">После</h3>
+                                        <img src="./img/work_4.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="works-list-items">
+                            <div class="works-list-items-grey-container">
+                                <h3 class="third-title-works-list">Восстановили кузов автомобиля после ДТП</h3>
+                                <div class="flex items-doposle">
+                                    <div class="items-doposle-do-container">
+                                        <h3 class="items-doposle-do">До</h3>
+                                        <img src="./img/work_5.png" alt="" class="first-item-do">
+                                    </div>
+                                    <div>
+                                        <h3 class="items-doposle-posle">После</h3>
+                                        <img src="./img/work_6.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+    </div>
+    
+    <footer class="footer">
+        <div class="container-footer">
+            <div class="footer-upper flex">
+                <div class="">
+                    <ul class="footer-list list-reset flex">
+                        <li class="footer-list-items"><a href="#about-us" class="footer-list-item-link">О нас</a></li>
+                        <li class="footer-list-items"><a href="#services" class="footer-list-item-link">Услуги</a></li>
+                        <li class="footer-list-items"><a href="#stock" class="footer-list-item-link">Акции</a></li>
+                        <li class="footer-list-items"><a href="#works" class="footer-list-item-link">Наши работы</a></li>
+                    </ul>
+                </div>
+                <div class="footer-phone-email flex">
+                    <div class="phone-footer">+7 999 999-99-99</div>
+                    <div class="email">example@urfu.ru</div>
+                </div>
+            </div>
+            <hr class="hr">
+            <div class="footer-lower flex">
+                <p class="urfu">© 2023 Урфу: Автосервис</p>
+                <p class="team">Команда: РАНААА</p>
+            </div>
+        </div>
+    </footer>
+    <script src="scripts/index.js"></script>
+</body>
+</html>

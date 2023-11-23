@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap');
+
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: "Manrope", sans-serif;
+    font-weight: 400;
+    background-color: #323232;
+}
+
+.flex {
+    display: flex;
+}
+
+/* header */
+
+.header {
+    background-color: #F7900A;
+}
+
+.header-fio {
+    align-items: center;
+    justify-content: end;
+
+}
+
+.fio_lk {
+    margin: 0;
+    margin-top: 17.5px;
+    margin-bottom: 17.5px;
+    margin-right: 40px;
+    color: #000;
+    font-size: 25px;
+    line-height: normal;
+
+    background-image: url("../img/user-icon-lk.svg");
+    background-repeat: no-repeat;
+    padding-left: 30px;
+}
+
+.container-bid {
+    width: 339px;
+    height: 1016px;
+    background-color: #1F1F1F;
+    flex-direction: column;
+    padding-top: 15px;
+    padding-left: 15px;
+    gap: 10px;
+}
+
+.bid {
+    margin: 0;
+    color: #bbb;
+    font-size: 30px;
+    line-height: normal;
+
+    background-image: url("../img/bid.svg");
+    background-repeat: no-repeat;
+    background-position: left center;
+    padding-left: 50px;
+}
+
+.prompt {
+    margin: 0;
+    color: #bbb;
+    font-size: 30px;
+    line-height: normal;
+
+
+    background-image: url("../img/prompt.svg");
+    background-repeat: no-repeat;
+    background-position: left center;
+    padding-left: 50px;
+}
+
+.bid_ul {
+    list-style: none;
+    margin: 0;
+    padding: 15px;
+    border-radius: 10px;
+
+    background-color: #BBB;
+    width: 130px;
+    height: 200px;
+    margin-left: 66px;
+}
+
+.active {
+    font-size: 20px;
+    line-height: normal;
+    margin-bottom: 12px;
+}
+
+.history {
+    font-size: 20px;
+    line-height: normal;
+}
+
+.bid_list {
+    list-style: none;
+}
+
+.bid_li:not(:last-child) {
+    margin-bottom: 17px;
+}
+
+.bid_header {
+    font-size: 25px;
+    line-height: normal;
+    height: 37px;
+    min-width: 1000px;
+    background-color: #bbb;
+    border-radius: 20px;
+    padding-left: 30px;
+}

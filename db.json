@@ -1,0 +1,66 @@
+{
+  "todos": [
+    {
+      "id": "1",
+      "fio": "Петров Пётр Владимирович",
+      "phone": "+7 999 999-99-99",
+      "email": "example@urfu.ru",
+      "gos-number": "a000aa96",
+      "vin-code": "vin-код",
+      "works": "Регламентные работы",
+      "comments": "Комментарии"
+    },
+    {
+      "id": "2",
+      "fio": "Петров Пётр Владимирович",
+      "phone": "+7 999 999-99-99",
+      "email": "example@urfu.ru",
+      "gos-number": "a000aa96",
+      "vin-code": "vin-код",
+      "works": "Регламентные работы",
+      "comments": "Комментарии"
+    },
+    {
+      "id": "3",
+      "fio": "Петров Пётр Владимирович",
+      "phone": "+7 999 999-99-99",
+      "email": "example@urfu.ru",
+      "gos-number": "a000aa96",
+      "vin-code": "vin-код",
+      "works": "Регламентные работы",
+      "comments": "Комментарии"
+    }
+  ],
+  "history": [
+    {
+      "id": "1",
+      "fio": "Иванов Иван Владимирович",
+      "phone": "+7 999 999-99-99",
+      "email": "example@urfu.ru",
+      "gos-number": "a000aa96",
+      "vin-code": "vin-код",
+      "works": "Регламентные работы",
+      "comments": "Комментарии"
+    },
+    {
+      "id": "2",
+      "fio": "Иванов Иван Владимирович",
+      "phone": "+7 999 999-99-99",
+      "email": "example@urfu.ru",
+      "gos-number": "a000aa96",
+      "vin-code": "vin-код",
+      "works": "Регламентные работы",
+      "comments": "Комментарии"
+    },
+    {
+      "id": "3",
+      "fio": "Иванов Иван Владимирович",
+      "phone": "+7 999 999-99-99",
+      "email": "example@urfu.ru",
+      "gos-number": "a000aa96",
+      "vin-code": "vin-код",
+      "works": "Регламентные работы",
+      "comments": "Комментарии"
+    }
+  ]
+}

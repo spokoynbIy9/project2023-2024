@@ -1,0 +1,17 @@
+.application-container {
+    background-color: #D9D9D9;
+    height: 500px;
+}
+
+.application-header {
+    background-color: #BBB;
+    margin-bottom: 20px;
+}
+
+.application-body {
+    background-color: #1F1F1F;
+}
+
+.flex {
+    display: flex;
+}
