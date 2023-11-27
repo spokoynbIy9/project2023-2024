@@ -63,9 +63,9 @@ function showRegistrationModal() {
             body: JSON.stringify(
                 {
                     "password": document.querySelector("#password_reg").value,
-                    "name": document.querySelector('#fio_reg').value,
-                    "surname": document.querySelector('#fio_reg').value,
-                    "secondName": document.querySelector('#fio_reg').value,
+                    "name": document.querySelector('#fio_reg').value.split(' ')[0],
+                    "surname": document.querySelector('#fio_reg').value.split(' ')[1],
+                    "secondName": document.querySelector('#fio_reg').value.split(' ')[2],
                     "telegram": document.querySelector('#telegram_reg').value,
                     "phone": document.querySelector('#phone_reg').value
                 }
@@ -75,7 +75,9 @@ function showRegistrationModal() {
         modal_hidden_registration.style.visibility = 'hidden';
         modal_registration.style.opacity = 0;
         personal_area.dispatchEvent(eventy);
+
     })
+
     document.querySelector("#password_reg").value = null;
     document.querySelector('#fio_reg').value = null;
     document.querySelector('#fio_reg').value = null;
@@ -118,15 +120,18 @@ function showAuthorizationModal() {
             })
         }); // Здесь нужно получить id user
         // window.location.href = "lk.html";
-        if (response.ok) {
+        if (response.status == 200) {
             temp = await response.json();
             // Store the data in the global variable
-            console.log(temp);
-            localStorage.setItem("id", temp);
-            window.location.href = "lk.html"  // Log the user data
+            // console.log(temp["client_id"]);
+            localStorage.setItem("client_id", temp["client_id"]);
+            localStorage.setItem("name", temp["name"]);
+            localStorage.setItem("surName", temp["surName"]);
+            localStorage.setItem("secondName", temp["secondName"]);
+            window.location.href = "lk.html"
         } else {
             console.error("Authentication failed");
-            temp = null;  // Reset the global variable if authentication fails
+            temp = null;
         }
     })
 }
@@ -135,7 +140,6 @@ function showBidModal() {
     const modal_hidden = document.querySelector('.modal-hidden');
     const modal = document.querySelector('.modal');
     const form = document.querySelector('.modal_form')
-    console.log(modal_hidden.style.display);
     if (modal_hidden.style.display == '') {
         modal_hidden.style.display = 'block';
         modal_hidden.style.visibility = 'visible';
@@ -150,47 +154,30 @@ function showBidModal() {
     });
     form.addEventListener('submit', async (event) => {
         event.preventDefault();
-        // const response = await fetch("http://localhost:5294/api/Order/History?id=2");
-        // const data = await response.json();
-        // await fetch("http://localhost:5294/api/Order/History?id=2", {
-        //     method: "POST",
-        //     headers: {
-        //         "Content-Type": "application/json"
-        //     },
-        //     body: JSON.stringify(
-        //         {
-        //             "id": 2,
-        //             "description": "123",
-        //             "isActive": false,
-        //             "start": "0001-01-01T00:00:00",
-        //             "end": "0001-01-01T00:00:00",
-        //             "result": null,
-        //             "clientId": 1,
-        //             "client": null,
-        //             "carId": 1,
-        //             "car": {
-        //                 "id": 1,
-        //                 "vin": 123,
-        //                 "stateNumber": "123",
-        //                 "mileAge": 123,
-        //                 "manufactureYear": 123,
-        //                 "orders": []
-        //             }
-        //             // "id": 2,
-        //             //     "fio": document.querySelector('#fio').value,
-        //             //     "phone": document.querySelector('#phone').value,
-        //             //     "email": document.querySelector('#email').value,
-        //             //     "gos-number": document.querySelector('#gos_number').value,
-        //             //     "vin-code": document.querySelector('#vin_code').value,
-        //             //     "works": document.querySelector('#works').value,
-        //             //     "comments": document.querySelector('#comment').value,
-        //         }
-        //     )
-
-        // })
+        await fetch("http://localhost:5294/api/OrderWithoutReg", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(
+                {
+                    "name": document.querySelector('#fio').value,
+                    "telegram": "1",
+                    "phone": document.querySelector('#phone').value,
+                    "description": document.querySelector('#comment').value,
+                    "vin": document.querySelector('#vin_code').value,
+                    "stateNumber": document.querySelector('#gos_number').value
+                }
+            )
+        })
         modal_hidden.style.display = '';
         modal_hidden.style.visibility = 'hidden';
         modal.style.opacity = 0;
+        location.reload();
     });
-
+    document.querySelector("#fio").value = null;
+    document.querySelector('#phone').value = null;
+    document.querySelector('#comment').value = null;
+    document.querySelector('#vin_code').value = null;
+    document.querySelector('#gos_number').value = null;
 }

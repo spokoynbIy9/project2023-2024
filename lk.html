@@ -8,9 +8,42 @@
     <link rel="stylesheet" href="css/style for lk.css">
 </head>
 <body>
+    <section class="modal-hidden">
+        <div class="modal" id="modal_bid">
+            <form method="POST" class="modal_form">
+                <h2 class="modal_form_title">Заявка</h2>
+                <h3 class="info_cars_title">Данные об автомобиле</h3>
+                    <ul class="flex info_cars_list list-reset">
+                        <li class="flex cars_item">
+                            <label for="gos_number" class="cars_item_subtitle flex">Гос-номер</label>
+                            <input type="text" name="gos_number" id="gos_number" class="form_input">
+                        </li>
+                        <li class="flex cars_item">
+                            <label for="vin_code" class="cars_item_subtitle flex">vin-код</label>
+                            <input type="text" name="vin_code" id="vin_code" class="form_input">
+                        </li>
+                        <li class="flex cars_item">
+                            <label for="mileAge" class="cars_item_subtitle flex">Пробег</label>
+                            <input type="text" name="mileAge" id="mileAge" class="form_input">
+                        </li>
+                    </ul>
+                <label for="works" class="form_label">Регламентные работы</label>
+                <input type="text" name="works" id="works" class="form_input">
+                <label for="comment" class="form_label">Комментарий</label>
+                <textarea name="comment" id="comment" cols="30" rows="10" class="form_input_com"></textarea>
+                <button class="submit_btn">Отправить</button>
+            </form>
+        </div>
+    </section>
     <header class="header">
-        <button class="exit_btn">Выйти</button>
-        <div class="flex header-fio"><p class="fio_lk">Фамилия Имя Отчество</p></div>
+        <div class="flex header-fio">
+            <p class="fio_lk"></p>
+        </div>
+        <div class="flex buttons_lk">
+            <button class="btn-reset btn">Онлайн запись</button>
+            <button class="exit_btn btn">Выйти</button>
+        </div>
+        
     </header>
     <main>
         <div class="container flex">
@@ -22,7 +55,7 @@
             </div>
         </div>
     </main>
-    <script src="scripts/index.js"></script>
+    <!-- <script src="scripts/index.js"></script> -->
     <script src="scripts/lk.js"></script>
 </body>
 </html>
