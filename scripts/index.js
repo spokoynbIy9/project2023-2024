@@ -130,7 +130,11 @@ function showAuthorizationModal() {
             localStorage.setItem("secondName", temp["secondName"]);
             window.location.href = "lk.html"
         } else {
-            console.error("Authentication failed");
+            const error_message = document.createElement('span');
+            error_message.classList.add('error_message');
+            error_message.textContent = 'Такой пользователь не найден';
+            form_authorization.append(error_message);
+            // console.error("Authentication failed");
             temp = null;
         }
     })
