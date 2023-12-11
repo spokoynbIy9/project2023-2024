@@ -3,6 +3,8 @@ const personal_area = document.querySelector('.personal-area');
 const btn_author = document.querySelector('.btn_register');
 const stock_card_times = document.querySelectorAll('.stock-card-time');
 
+
+
 stock_card_times.forEach(element => {
     var timerId = setInterval(function () {
         var now = new Date();
@@ -128,16 +130,27 @@ function showAuthorizationModal() {
             localStorage.setItem("name", temp["name"]);
             localStorage.setItem("surName", temp["surName"]);
             localStorage.setItem("secondName", temp["secondName"]);
+            localStorage.setItem("toNotify", temp["toNotify"]);
             window.location.href = "lk.html"
-        } else {
-            const error_message = document.createElement('span');
-            error_message.classList.add('error_message');
-            error_message.textContent = 'Такой пользователь не найден';
-            form_authorization.append(error_message);
-            // console.error("Authentication failed");
-            temp = null;
+        } else if (response.status == 404) {
+            if (document.querySelector('.error_message') == null) {
+                makeErrorMessage(`Такой пользователь не найден`);
+            }
+        }
+        else if (response.status == 401) {
+            if (document.querySelector('.error_message') == null) {
+                makeErrorMessage(`Неверный пароль`);
+            }
         }
     })
+}
+
+function makeErrorMessage(text) {
+    const error_message = document.createElement('span');
+    error_message.classList.add('error_message');
+    error_message.textContent = `${text}`;
+    document.querySelector('.modal_form_authorization').insertBefore(error_message, document.querySelector('.entry_btn'));
+    setTimeout(function () { error_message.remove() }, 5000);
 }
 
 function showBidModal() {

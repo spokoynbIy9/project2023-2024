@@ -30,7 +30,18 @@
                         </li>
                     </ul>
                 <label for="works" class="form_label">Регламентные работы</label>
-                <input type="text" name="works" id="works" class="form_input">
+                <select name="works" id="works" class="form_input">
+                    <option value="value1">Замена моторного масло</option>
+                    <option value="value2">Замена воздушного фильтра</option>
+                    <option value="value3">Замена Свечи зажигания</option>
+                    <option value="value4">Замена ремня ГРМ</option>
+                    <option value="value5">Регулировка клапанов</option>
+                    <option value="value6">Замена рабочая жидкость в трансмиссии</option>
+                    <option value="value7">Замена салонного фильтра</option>
+                    <option value="value8">Осмотр ходовой части</option>
+                    <option value="value9">Другое</option>
+                </select>
+                <!-- <input type="text" name="works" id="works" class="form_input"> -->
                 <label for="comment" class="form_label">Комментарий</label>
                 <textarea name="comment" id="comment" cols="30" rows="10" class="form_input_com"></textarea>
                 <button class="submit_btn">Отправить</button>
@@ -43,9 +54,9 @@
             <form method="POST" class="modal_form_authorization">
                 <h2 class="modal_form_authorization_title">Авторизация</h2>
                 <label for="phone" class="form_label">Телефон</label>
-                <input type="text" name="phone_authorization" id="phone_authorization" class="form_input">
+                <input type="text" name="phone_authorization" id="phone_authorization" class="form_input" required>
                 <label for="email" class="form_label">Пароль</label>
-                <input type="password" name="password_authorization" id="password_authorization" class="form_input">
+                <input type="password" name="password_authorization" id="password_authorization" class="form_input" required>
                 <button class="entry_btn">Войти</button>
                 <div class="container_telegram">
                     <svg class="telegram" xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" fill="none">
@@ -79,7 +90,7 @@
             <div class="header-upper flex">
                 <div class="local-phone flex">
                     <p class="text-reset local">Екатеринбург</p>
-                    <p class="text-reset phone">+7 999 999-99-99</p>
+                    <a href="tel:+79999999999" class="phone link-reset">+7 999 999-99-99</a>
                 </div>
                 <a href="#" class="personal-area">Личный кабинет</a>
             </div>
@@ -95,7 +106,7 @@
                         </ul>
                     </div>
                 </div>
-                <button class="btn-reset btn">Онлайн запись</button>
+                <button class="btn btn-reset">Онлайн запись</button>
             </div>
         </header>
 
@@ -103,7 +114,11 @@
             <section class="about-us" id="about-us">
                 <div class="container-darkgrey darkgrey-about-us">
                     <h2 class="section-title">О нас</h2>
-                    <img src="img/about-us.jpg" width="1220" height="480" alt="" class="img-about-us">
+                    <picture>
+                        <source media="(max-width:769px)" width="650" srcset="img/about-us.jpg">
+                        <source media="(max-width:1025px)" width="850" srcset="img/about-us.jpg">
+                        <img src="img/about-us.jpg" width="1220" height="480" alt="" class="img-about-us">
+                    </picture>
                     <p class="about-us-alone-descr">
                         Мы являемся надежным и профессиональным автосервисом, на рынке нас знают уже больше 10 лет! Спектр услуг предоставляемый нашей компанией поражает воображение. Нам доверяют самые разные слои общества от обычного работяги до Снупи Дога, поэтому и ты стань частью нашей семьи.
                     </p>
@@ -159,28 +174,27 @@
                         </li>
                         <li class="services-list-items">
                             <div class="services-list-items-cards">
-                                <img class="cards-img" src="img/services_2.png" alt="">
-                                <h3 class="cards-title">Замена ремня ГРМ</h3>
-                                <p class="cards-descr">Замена ремня ГРМ — одно из самых ответственных мероприятий по обслуживанию автомобиля. Ремень ГРМ отвечает за синхронизацию работы двигателя, и его поломка может привести к серьезным повреждениям и дорогому ремонту.</p>
+                                <img class="cards-img" src="img/services_3.png" alt="">
+                                <h3 class="cards-title">Замена двигателя</h3>
+                                <p class="cards-descr">Если двигатель автомобиля вышел из строя, замена двигателя может быть единственным способом вернуть автомобиль на дорогу. Мы предлагаем качественную замену двигателя, чтобы ваш автомобиль работал на полную мощность.</p>
                                 <ul class="services-list-halfsave">
-                                    <li class="services-list-halfsave-items">Время выполнения: от 1 часа</li>
+                                    <li class="services-list-halfsave-items">Время выполнения: 2-5 дней</li>
                                     <li class="services-list-halfsave-items">Подбор запчастей: Нет</li>
-                                    <li class="services-list-halfsave-items">Установка и настройка: Да</li>
+                                    <li class="services-list-halfsave-items">Устновка и настройка: Да</li>
                                 </ul>
-                                <p class="cards-price">1 500₽</p>
+                                <p class="cards-price">от 12 000₽</p>
                             </div>
                         </li>
                         <li class="services-list-items">
                             <div class="services-list-items-cards">
-                                <img class="cards-img" src="img/services_1.png" alt="">
-                                <h3 class="cards-title">Замена ремня ГРМ</h3>
-                                <p class="cards-descr">Замена ремня ГРМ — одно из самых ответственных мероприятий по обслуживанию автомобиля. Ремень ГРМ отвечает за синхронизацию работы двигателя, и его поломка может привести к серьезным повреждениям и дорогому ремонту.</p>
+                                <img class="cards-img" src="img/services_4.png" alt="">
+                                <h3 class="cards-title">Сход-развал</h3>
+                                <p class="cards-descr">Мы предлагаем профессиональные услуги по сход-развалу, чтобы ваш автомобиль был настроен на максимальную точность и комфортность управления.</p>
                                 <ul class="services-list-halfsave">
-                                    <li class="services-list-halfsave-items">Время выполнения: от 1 часа</li>
-                                    <li class="services-list-halfsave-items">Подбор запчастей: Нет</li>
+                                    <li class="services-list-halfsave-items">Время выполнения: 2 часа</li>
                                     <li class="services-list-halfsave-items">Установка и настройка: Да</li>
                                 </ul>
-                                <p class="cards-price">1 500₽</p>
+                                <p class="cards-price-4">2 000₽</p>
                             </div>
                         </li>
                         <li class="services-list-items">
@@ -349,12 +363,12 @@
                         <li class="footer-list-items"><a href="#about-us" class="footer-list-item-link">О нас</a></li>
                         <li class="footer-list-items"><a href="#services" class="footer-list-item-link">Услуги</a></li>
                         <li class="footer-list-items"><a href="#stock" class="footer-list-item-link">Акции</a></li>
-                        <li class="footer-list-items"><a href="#works" class="footer-list-item-link">Наши работы</a></li>
+                        <li class="footer-list-items"><a href="#our_works" class="footer-list-item-link">Наши работы</a></li>
                     </ul>
                 </div>
                 <div class="footer-phone-email flex">
-                    <div class="phone-footer">+7 999 999-99-99</div>
-                    <div class="email">example@urfu.ru</div>
+                    <a href="tel:+79999999999" class="phone-footer">+7 999 999-99-99</a>
+                    <a href="mailto:example@urfu.ru" class="email">example@urfu.ru</a>
                 </div>
             </div>
             <hr class="hr">

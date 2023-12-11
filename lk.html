@@ -28,7 +28,18 @@
                         </li>
                     </ul>
                 <label for="works" class="form_label">Регламентные работы</label>
-                <input type="text" name="works" id="works" class="form_input">
+                <select name="works" id="works" class="form_input">
+                    <option value="value1">Замена моторного масло</option>
+                    <option value="value2">Замена воздушного фильтра</option>
+                    <option value="value3">Замена Свечи зажигания</option>
+                    <option value="value4">Замена ремня ГРМ</option>
+                    <option value="value5">Регулировка клапанов</option>
+                    <option value="value6">Замена рабочая жидкость в трансмиссии</option>
+                    <option value="value7">Замена салонного фильтра</option>
+                    <option value="value8">Осмотр ходовой части</option>
+                    <option value="value9">Другое</option>
+                </select>
+                <!-- <input type="text" name="works" id="works" class="form_input"> -->
                 <label for="comment" class="form_label">Комментарий</label>
                 <textarea name="comment" id="comment" cols="30" rows="10" class="form_input_com"></textarea>
                 <button class="submit_btn">Отправить</button>
@@ -40,10 +51,15 @@
             <p class="fio_lk"></p>
         </div>
         <div class="flex buttons_lk">
-            <button class="btn-reset btn">Онлайн запись</button>
-            <button class="exit_btn btn">Выйти</button>
+            <button class="burger-menu">☰</button>
+            <div class="flex">
+                <button class="btn-reset btn">Онлайн запись</button>
+                <button class="exit_btn btn">Выйти</button>
+            </div>  
         </div>
-        
+        <script>
+            
+        </script>
     </header>
     <main>
         <div class="container flex">
@@ -53,6 +69,7 @@
             </div>
             <div class="container-bid-view">
             </div>
+            <div class="container-prompt-view"></div>
         </div>
     </main>
     <!-- <script src="scripts/index.js"></script> -->

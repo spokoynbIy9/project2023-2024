@@ -149,6 +149,23 @@ body {
     font-weight: 700;
     line-height: normal;
     margin-bottom: 10px;
+    transition: color 0.2s linear, background 0.2s linear;
+}
+
+.entry_btn:focus {
+    background: #890000;
+    color: #000;
+    outline: #890000;
+}
+
+.entry_btn:hover {
+    background: #890000;
+    color: #000;
+}
+
+.entry_btn:active {
+    background: #890000;
+    color: #fff;
 }
 
 .container_telegram {
@@ -163,7 +180,22 @@ body {
     color: #828282;
     font-size: 12px;
     line-height: normal;
+    transition: color 0.2s linear;
 }
+
+.btn_register:focus-visible {
+    outline-color: #000;
+    color: #fff;
+}
+
+.btn_register:hover:not(:focus-visible) {
+    color: #fff;
+}
+
+.btn_register:active:not(:focus-visible) {
+    color: #adadad;
+}
+
 
 .modal-hidden {
     flex-shrink: 0;
@@ -272,6 +304,23 @@ body {
     font-size: 12px;
     font-weight: 700;
     line-height: normal;
+    transition: color 0.2s linear, background 0.2s linear;
+}
+
+.submit_btn:focus {
+    background: #890000;
+    color: #000;
+    outline: #890000;
+}
+
+.submit_btn:hover {
+    background: #890000;
+    color: #000;
+}
+
+.submit_btn:active {
+    background: #890000;
+    color: #fff;
 }
 
 .submit_btn_reg {
@@ -279,6 +328,7 @@ body {
     align-self: center;
     padding: 0;
     cursor: pointer;
+    padding: 10px 17px;
     min-width: 100px;
     height: 36px;
     border: 2px solid #890000;
@@ -288,6 +338,23 @@ body {
     font-size: 12px;
     font-weight: 700;
     line-height: normal;
+    transition: color 0.2s linear, background 0.2s linear;
+}
+
+.submit_btn_reg:focus {
+    background: #890000;
+    color: #000;
+    outline: #890000;
+}
+
+.submit_btn_reg:hover {
+    background: #890000;
+    color: #000;
+}
+
+.submit_btn_reg:active {
+    background: #890000;
+    color: #fff;
 }
 
 .info_cars_title {
@@ -321,8 +388,14 @@ body {
     display: flex;
 }
 
+
 .text-reset {
     margin: 0;
+}
+
+.link-reset {
+    margin: 0;
+    text-decoration: none;
 }
 
 .list-reset {
@@ -340,7 +413,7 @@ body {
 
 .container-grey {
     margin: 50px auto;
-    width: 1380px;
+    max-width: 1380px;
     border-radius: 5px;
     background: #292525;
     padding-bottom: 79px;
@@ -374,6 +447,20 @@ body {
     background-image: url("../img/phone.svg");
     background-repeat: no-repeat;
     padding-left: 18px;
+    transition: color 0.1s linear;
+}
+
+.phone:focus-visible {
+    outline-color: #000;
+    color: #fff;
+}
+
+.phone:hover:not(:focus-visible) {
+    color: #fff;
+}
+
+.phone:active:not(:focus-visible) {
+    color: #adadad;
 }
 
 .personal-area {
@@ -385,6 +472,20 @@ body {
     background-image: url("../img/user-icon.svg");
     background-repeat: no-repeat;
     padding-left: 18px;
+    transition: color 0.1s linear;
+}
+
+.personal-area:focus-visible {
+    outline-color: #000;
+    color: #fff;
+}
+
+.personal-area:hover:not(:focus-visible) {
+    color: #fff;
+}
+
+.personal-area:active:not(:focus-visible) {
+    color: #adadad;
 }
 
 .header-upper {
@@ -422,6 +523,25 @@ body {
     font-size: 20px;
     font-weight: 600;
     line-height: normal;
+    transition: text-decoration-color 0.3s linear, color 0.3s linear, text-decoration 0.3s linear;
+}
+
+.list-item-link:focus-visible {
+    color: #292525;
+    text-decoration: underline;
+    text-decoration-color: #292525;
+}
+
+.list-item-link:hover:not(:focus-visible) {
+    color: #292525;
+    text-decoration: underline;
+    text-decoration-color: #292525;
+}
+
+.list-item-link:active:not(:focus-visible) {
+    color: #000;
+    text-decoration: underline;
+    text-decoration-color: #000;
 }
 
 .header-lower-list-item:not(:last-child) {
@@ -446,6 +566,24 @@ body {
     border: 2px solid #d9d9d9d9;
     background: #292525;
     box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.25);
+    transition: outline 0.2s linear, background 0.2s linear, color 0.2s linear, border 0.2s linear;
+}
+
+.btn:focus {
+    outline: #737373;
+    border: #737373;
+    background: #292525;
+}
+
+.btn:hover {
+    background: #fff;
+    color: #000;
+}
+
+.btn:active {
+    background: #ADADAD;
+    border: #ADADAD;
+    color: #000;
 }
 
 /* about-us */
@@ -475,15 +613,14 @@ body {
 }
 
 .img-about-us {
-    margin-left: 20px;
-    margin-bottom: 30px;
+    margin: 0 20px;
 }
 
 .about-us-alone-descr {
     margin: 0;
     margin-left: 20px;
     margin-right: 20px;
-    min-width: 1220px;
+    max-width: 1220px;
     color: #d9d9d9;
     font-size: 18px;
     line-height: normal;
@@ -520,6 +657,7 @@ body {
 
 .review-map {
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-between;
     margin: 40px;
 }
@@ -672,6 +810,15 @@ body {
     margin-top: 17px;
 }
 
+.cards-price-4 {
+    margin: 0;
+    color: #fff;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: normal;
+    padding-top: auto;
+}
+
 .services-list {
     flex-wrap: wrap;
 }
@@ -685,6 +832,9 @@ body {
 }
 
 /* stock */
+
+
+
 .darkgrey-stock {
     margin-top: 40px;
     margin-left: 40px;
@@ -827,9 +977,32 @@ body {
     border: 2px solid #d9d9d9d9;
     background-color: #292525;
     box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.25);
+    transition: outline 0.2s linear, color 0.2s linear, background 0.2s linear, border 0.2s linear;
+}
+
+.btn-stock:focus {
+    border-color: #737373;
+    outline: #737373;
+}
+
+.btn-stock:hover {
+    color: #000;
+    background: #fff;
+}
+
+.btn-stock:active {
+    color: #000;
+    border-color: #adadad;
+    outline: #adadad;
+    background: #adadad;
 }
 
 /* works */
+
+.items-doposle {
+    flex-wrap: wrap;
+}
+
 .darkgrey-works {
     margin-top: 40px;
     margin-left: 40px;
@@ -910,6 +1083,7 @@ body {
 }
 
 .footer-upper {
+    flex-wrap: wrap;
     justify-content: space-between;
 }
 
@@ -926,7 +1100,23 @@ body {
     background-image: url("../img/phone_footer.svg");
     background-repeat: no-repeat;
     padding-left: 18px;
+    text-decoration: none;
+    transition: color 0.2s linear;
 }
+
+.phone-footer:focus-visible {
+    outline-color: #000;
+    color: #fff;
+}
+
+.phone-footer:hover:not(:focus-visible) {
+    color: #fff;
+}
+
+.phone-footer:active:not(:focus-visible) {
+    color: #adadad;
+}
+
 
 .email {
     color: #d9d9d9;
@@ -937,6 +1127,21 @@ body {
     background-repeat: no-repeat;
     background-position: 0 50%;
     padding-left: 30px;
+    text-decoration: none;
+    transition: color 0.2s linear;
+}
+
+.email:focus-visible {
+    outline-color: #000;
+    color: #fff;
+}
+
+.email:hover:not(:focus-visible) {
+    color: #fff;
+}
+
+.email:active:not(:focus-visible) {
+    color: #adadad;
 }
 
 .footer-phone-email {
@@ -972,4 +1177,117 @@ body {
     color: #d9d9d9;
     font-size: 15px;
     line-height: normal;
+    transition: color 0.2s linear;
+}
+
+.footer-list-item-link:focus-visible {
+    color: #ADADAD;
+}
+
+.footer-list-item-link:hover:not(:focus-visible) {
+    color: #ADADAD;
+}
+
+.footer-list-item-link:active:not(:focus-visible) {
+    color: #fff;
+}
+
+.error_message {
+    text-align: center;
+    color: red;
+    text-transform: lowercase;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+@media(max-width: 1024px) {
+
+    .container-grey {
+        margin: 0;
+    }
+
+    .logo-nav,
+    .header-lower {
+        gap: 0;
+    }
+
+    .header-lower {
+        justify-content: space-between;
+        padding-right: 20px;
+    }
+
+    .logo-link {
+        margin-right: 119px;
+    }
+
+    .section-title {
+        text-align: center;
+        margin-left: 0;
+    }
+
+    .about-us-alone-descr {
+        font-size: 16px;
+    }
+
+    .review-map {
+        margin: 0;
+        justify-content: center;
+        gap: 25px;
+    }
+
+    .services-list {
+        justify-content: center;
+    }
+
+    .stock-list {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .stock-list-items:nth-child(2n) {
+        margin-right: 0;
+    }
+
+    .services-list-items:nth-child(2n+1) {
+        margin-right: 20px;
+    }
+
+    .services-list-items:nth-child(2n) {
+        margin-right: 0;
+    }
+
+    .section-title-stock {
+        text-align: center;
+    }
+
+    .section-title-works {
+        margin-left: 0;
+        text-align: center;
+    }
+
+    .items-doposle {
+        justify-content: center;
+    }
+
+    .container-grey {
+        padding-bottom: 50px;
+    }
+
+    .container-footer {
+        border-top: 1px solid #D9D9D9;
+    }
+}
+
+@media(max-width: 768px) {
+    .img-about-us {
+        margin: 0;
+    }
+
+    .logo-link {
+        display: none;
+    }
+
+    .header-lower {
+        padding-left: 20px;
+    }
 }

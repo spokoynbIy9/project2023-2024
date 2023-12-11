@@ -29,10 +29,30 @@ body {
     border: 2px solid #d9d9d9d9;
     background: #292525;
     box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    transition: outline 0.2s linear, border 0.2s linear, color 0.2s linear, background 0.2s linear;
 }
 
+.btn:focus {
+    outline: #737373;
+    border: #737373;
+    background: #292525;
+}
+
+.btn:hover {
+    background: #fff;
+    color: #000;
+}
+
+.btn:active {
+    background: #ADADAD;
+    border: #ADADAD;
+    color: #000;
+}
+
+
 .buttons_lk {
-    justify-content: end;
+    justify-content: space-between;
     gap: 10px;
     margin-right: 20px;
     padding-bottom: 10px;
@@ -145,7 +165,25 @@ body {
     font-size: 12px;
     font-weight: 700;
     line-height: normal;
+    transition: color 0.2s linear, background 0.2s linear;
 }
+
+.submit_btn:focus {
+    background: #890000;
+    color: #000;
+    outline: #890000;
+}
+
+.submit_btn:hover {
+    background: #890000;
+    color: #000;
+}
+
+.submit_btn:active {
+    background: #890000;
+    color: #fff;
+}
+
 
 .info_cars_title {
     margin: 0;
@@ -227,17 +265,39 @@ body {
     padding-left: 50px;
 }
 
+
+
 .prompt {
     margin: 0;
     color: #bbb;
     font-size: 30px;
     line-height: normal;
-
+    position: relative;
 
     background-image: url("../img/prompt.svg");
     background-repeat: no-repeat;
     background-position: left center;
     padding-left: 50px;
+}
+
+
+.text-with-circle {
+    position: relative;
+    margin: 0;
+}
+
+.circle-number {
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-color: #3498db;
+    border-radius: 50%;
+    margin-left: 5px;
+    text-align: center;
+    line-height: 20px;
+    color: #fff;
+    font-weight: bold;
 }
 
 .bid_ul {
@@ -253,12 +313,14 @@ body {
 }
 
 .bid_body {
-    padding-top: -10px;
+    /* padding-top: -10px; */
     border-radius: 0px 0px 10px 10px;
     background-color: #1F1F1F;
-    max-height: 273px;
+    min-height: 273px;
     display: flex;
+    flex-direction: column;
     position: relative;
+
     margin-top: -15px;
     z-index: -1;
     padding-top: 20px;
@@ -309,7 +371,13 @@ body {
 .stateNumber_name,
 .stateNumber_info,
 .mileAge_name,
-.mileAge_info {
+.mileAge_info,
+.work_name,
+.work_info,
+.dateTime_name,
+.dateTime_info,
+.time_name,
+.time_info {
     margin: 0;
 }
 
@@ -317,7 +385,10 @@ body {
 .description_name,
 .stateNumber_name,
 .vin_name,
-.mileAge_name {
+.mileAge_name,
+.work_name,
+.dateTime_name,
+.time_name {
     color: #d9d9d9;
     font-size: 20px;
     line-height: normal;
@@ -326,7 +397,10 @@ body {
 .description_info,
 .vin_info,
 .stateNumber_info,
-.mileAge_info {
+.mileAge_info,
+.work_info,
+.dateTime_info,
+.time_info {
     color: #fff;
     font-size: 20px;
     font-weight: 600;
@@ -336,4 +410,92 @@ body {
 .description_info {
     max-width: 300px;
     height: auto;
+}
+
+.prompt_list {
+    list-style: none;
+}
+
+.prompt_li:not(:last-child) {
+    margin-bottom: 17px;
+}
+
+.prompt_header {
+    font-size: 25px;
+    line-height: normal;
+    height: 37px;
+    min-width: 1000px;
+    background-color: #bbb;
+    border-radius: 20px;
+    padding-left: 30px;
+}
+
+.prompt_body {
+    border-radius: 0px 0px 10px 10px;
+    background-color: #1F1F1F;
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    margin-top: -15px;
+    z-index: -1;
+    padding-top: 20px;
+    padding-left: 10px;
+}
+
+.burger-menu {
+    display: none;
+    font-size: 20px;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    color: #000;
+    margin-left: 10px;
+}
+
+@media (max-width: 1025px) {
+    .burger-menu {
+        display: block;
+    }
+
+    .container-bid {
+        display: none;
+    }
+
+    /* .container-bid {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    } */
+
+    .container-bid p {
+        margin: 10px 0;
+    }
+
+    /* .container-bid-view,
+    .container-prompt-view {
+        display: none;
+    } */
+
+    .bid_header,
+    .prompt_header {
+        min-width: 500px;
+    }
+
+    .bid_list,
+    .prompt_list {
+        padding-left: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .container-bid-view {
+        margin: 0 auto;
+    }
+
+    .container-prompt-view {
+        margin: 0 auto;
+    }
 }
