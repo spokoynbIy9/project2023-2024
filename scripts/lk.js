@@ -389,7 +389,7 @@ async function renderNotify(event, url) {
 
 
 
-const button_bid = document.querySelector('.btn');
+const make_bid = document.querySelector('.registration');
 function showBidModal() {
     const modal_hidden = document.querySelector('.modal-hidden');
     const modal = document.querySelector('.modal');
@@ -440,6 +440,6 @@ function showBidModal() {
 
 }
 
-button_bid.addEventListener('click', () => {
+make_bid.addEventListener('click', () => {
     showBidModal();
 });

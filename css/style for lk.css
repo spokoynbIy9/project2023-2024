@@ -53,9 +53,12 @@ body {
 
 .buttons_lk {
     justify-content: space-between;
-    gap: 10px;
-    margin-right: 20px;
     padding-bottom: 10px;
+    padding-right: 40px;
+}
+
+.buttons {
+    margin-left: auto;
 }
 
 .modal-hidden {
@@ -232,7 +235,7 @@ body {
 .fio_lk {
     margin: 0;
     margin-top: 17.5px;
-    margin-bottom: 17.5px;
+    margin-bottom: 6px;
     margin-right: 40px;
     color: #000;
     font-size: 25px;
@@ -280,8 +283,22 @@ body {
     padding-left: 50px;
 }
 
+.registration {
+    margin: 0;
+    color: #bbb;
+    font-size: 30px;
+    line-height: normal;
+    position: relative;
+    background-image: url(../img/register.svg);
+    background-repeat: no-repeat;
+    background-position: 5px center;
+    padding-left: 50px;
+    cursor: pointer;
+}
+
 
 .text-with-circle {
+    font-size: 15px;
     position: relative;
     margin: 0;
 }
@@ -291,9 +308,8 @@ body {
     display: inline-block;
     width: 20px;
     height: 20px;
-    background-color: #3498db;
+    background-color: #A50000;
     border-radius: 50%;
-    margin-left: 5px;
     text-align: center;
     line-height: 20px;
     color: #fff;
@@ -454,6 +470,12 @@ body {
     margin-left: 10px;
 }
 
+.exit_btn {
+    border: none;
+    background: transparent;
+    text-decoration: underline;
+}
+
 @media (max-width: 1025px) {
     .burger-menu {
         display: block;
@@ -469,9 +491,9 @@ body {
         align-items: center;
     } */
 
-    .container-bid p {
+    /* .container-bid p {
         margin: 10px 0;
-    }
+    } */
 
     /* .container-bid-view,
     .container-prompt-view {
@@ -497,5 +519,13 @@ body {
 
     .container-prompt-view {
         margin: 0 auto;
+    }
+}
+
+@media (max-width: 769px) {
+
+    .bid_header,
+    .prompt_header {
+        min-width: 300px;
     }
 }
