@@ -8,72 +8,87 @@
     <link rel="stylesheet" href="css/style for lk.css">
 </head>
 <body>
-    <section class="modal-hidden">
-        <div class="modal" id="modal_bid">
-            <form method="POST" class="modal_form">
-                <h2 class="modal_form_title">Заявка</h2>
-                <h3 class="info_cars_title">Данные об автомобиле</h3>
-                    <ul class="flex info_cars_list list-reset">
-                        <li class="flex cars_item">
-                            <label for="gos_number" class="cars_item_subtitle flex">Гос-номер</label>
-                            <input type="text" name="gos_number" id="gos_number" class="form_input">
-                        </li>
-                        <li class="flex cars_item">
-                            <label for="vin_code" class="cars_item_subtitle flex">vin-код</label>
-                            <input type="text" name="vin_code" id="vin_code" class="form_input">
-                        </li>
-                        <li class="flex cars_item">
-                            <label for="mileAge" class="cars_item_subtitle flex">Пробег</label>
-                            <input type="text" name="mileAge" id="mileAge" class="form_input">
-                        </li>
-                    </ul>
-                <label for="works" class="form_label">Регламентные работы</label>
-                <select name="works" id="works" class="form_input">
-                    <option value="value1">Замена моторного масло</option>
-                    <option value="value2">Замена воздушного фильтра</option>
-                    <option value="value3">Замена Свечи зажигания</option>
-                    <option value="value4">Замена ремня ГРМ</option>
-                    <option value="value5">Регулировка клапанов</option>
-                    <option value="value6">Замена рабочая жидкость в трансмиссии</option>
-                    <option value="value7">Замена салонного фильтра</option>
-                    <option value="value8">Осмотр ходовой части</option>
-                    <option value="value9">Другое</option>
-                </select>
-                <!-- <input type="text" name="works" id="works" class="form_input"> -->
-                <label for="comment" class="form_label">Комментарий</label>
-                <textarea name="comment" id="comment" cols="30" rows="10" class="form_input_com"></textarea>
-                <button class="submit_btn">Отправить</button>
+    <div class="modalBackground">
+        <div class="modalActive">
+            <form action="" class="modalForm">
+                <h2 class="form__name form__name-review">Заявка</h2>
+                <ul class="form__list">
+                    <li class="form__list-items">
+                        <ul class="label__list">
+                            <li class="form__list-items">
+                                <label for="gos-number" class="form__label label__car-info">Гос-номер</label>
+                                <input type="text" name="" id="gos-number" class="form__input input__car-info">
+                            </li>
+                            <li class="form__list-items">
+                                <label for="vin-code" class="form__label label__car-info">vin-код</label>
+                                <input type="text" name="" id="vin-code" class="form__input input__car-info">
+                            </li>
+                            <li class="form__list-items">
+                                <label for="mileAge" class="form__label label__car-info">Пробег</label>
+                                <input type="text" name="" id="mileAge" class="form__input input__car-info">
+                            </li>
+                            <li class="form__list-items">
+                                <label for="routine-work" class="form__label">Регламентные работы</label>
+                                <select name="" id="routine-work" class="form__select">
+                                    <option value="value0" hidden></option>
+                                    <option value="value1">Замена моторного масло</option>
+                                    <option value="value2">Замена воздушного фильтра</option>
+                                    <option value="value3">Замена Свечи зажигания</option>
+                                    <option value="value4">Замена ремня ГРМ</option>
+                                    <option value="value5">Регулировка клапанов</option>
+                                    <option value="value6">Замена рабочая жидкость в трансмиссии</option>
+                                    <option value="value7">Замена салонного фильтра</option>
+                                    <option value="value8">Осмотр ходовой части</option>
+                                    <option value="value9">Другое</option>
+                                </select>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="form__list-items">
+                        <label for="comment" class="form__label">Комментарий</label>
+                        <textarea name="" id="comment" cols="30" rows="10" class="form__input-com"></textarea>
+                    </li>
+                </ul>
+                <button class="form__btn">Отправить</button>
             </form>
         </div>
-    </section>
+    </div>
+
     <header class="header">
-        <div class="flex header-fio">
-            <p class="fio_lk"></p>
+        <button class="burger-menu__btn">
+            <svg class="burger-menu__img" width="30" height="23" viewBox="0 0 30 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="30" height="23" fill="#1E1E1E"/>
+                <g id="1024">
+                <rect width="1024" height="1522" transform="translate(-25 -38)" fill="#323232"/>
+                <g id="top-panel">
+                <rect width="1024" height="99" transform="translate(-25 -38)" fill="#F7900A"/>
+                <g id="Frame 14" clip-path="url(#clip0_0_1)">
+                <line id="Line 7" x1="1.31134e-07" y1="1.5" x2="30" y2="1.5" stroke="black" stroke-width="3"/>
+                <line id="Line 8" x1="1.31134e-07" y1="11.5" x2="30" y2="11.5" stroke="black" stroke-width="3"/>
+                <line id="Line 9" x1="1.31134e-07" y1="21.5" x2="30" y2="21.5" stroke="black" stroke-width="3"/>
+                </g>
+                </g>
+                </g>
+                <defs>
+                <clipPath id="clip0_0_1">
+                <rect width="30" height="23" fill="white"/>
+                </clipPath>
+                </defs>
+            </svg>
+        </button>
+        <div class="header__rightside">
+            <p class="user_fio"></p>
+            <button class="btn-exit">Выйти</button>
         </div>
-        <div class="flex buttons_lk">
-            <button class="burger-menu">☰</button>
-            <div class="flex buttons">
-                <!-- <button class="btn-reset btn">Онлайн запись</button> -->
-                <button class="exit_btn">Выйти</button>
-            </div>  
-        </div>
-        <script>
-            
-        </script>
     </header>
-    <main>
-        <div class="container flex">
-            <div class="container-bid flex">
-                <p class="bid">Заявки</p>
-                <p class="prompt flex">Напоминания</p>
-                <p class="registration">Онлайн запись</p>
-            </div>
-            <div class="container-bid-view">
-            </div>
-            <div class="container-prompt-view"></div>
+    <main class="main">
+        <div class="menu">
+            <p class="bid menu-item">Заявки</p>
+            <p class="prompt menu-item">Напоминания</p>
+            <p class="registration menu-item">Онлайн запись</p>
         </div>
+        <div class="container-bid-prompt"></div>
     </main>
-    <!-- <script src="scripts/index.js"></script> -->
     <script src="scripts/lk.js"></script>
 </body>
 </html>

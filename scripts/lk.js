@@ -1,26 +1,94 @@
 const bid = document.querySelector('.bid');
-const bid_types = ["active", "history"];
+const bid_types = ["active", "history"]
+const urls = { "active": `http://localhost:5294/api/Order/Active?id=${localStorage.getItem("client_id")}`, "history": `http://localhost:5294/api/Order/History?id=${localStorage.getItem("client_id")}` }
+const btn_exit = document.querySelector('.btn-exit');
+const fio = document.querySelector('.user_fio').textContent = `${localStorage.getItem("name")} ${localStorage.getItem("surName")} ${localStorage.getItem("secondName")}`;
+const modalForm = document.querySelector('.modalForm');
 const prompt = document.querySelector('.prompt');
-const urls = { "active": `http://localhost:5294/api/Order/Active?id=${localStorage.getItem("client_id")}`, "history": `http://localhost:5294/api/Order/History?id=${localStorage.getItem("client_id")}` };
-const btn_exit = document.querySelector('.exit_btn');
-const buttons_lk = document.querySelector('.buttons_lk');
-const burger_menu = document.querySelector('.burger-menu');
-const container_bid_view = document.querySelector('.container-bid-view');
-const container_prompt_view = document.querySelector('.container-prompt-view');
-if (getComputedStyle(burger_menu).display == 'block') {
-    buttons_lk.style.justifyContent = 'space-between';
-}
-else {
-    buttons_lk.style.justifyContent = 'flex-end';
-}
-function toggleMenu() {
-    const containerBid = document.querySelector('.container-bid');
-    containerBid.style.display = (containerBid.style.display === 'flex') ? 'none' : 'flex';
-}
-burger_menu.addEventListener('click', () => {
-    toggleMenu();
+const burger_btn = document.querySelector('.burger-menu__btn');
+const menu = document.querySelector('.menu');
+
+burger_btn.addEventListener('click', e => {
+    if (menu.style.display == "") {
+        menu.style.display = "flex";
+    }
+    else {
+        menu.style.display = "";
+    }
 })
-const fio = document.querySelector('.fio_lk').textContent = `${localStorage.getItem("name")} ${localStorage.getItem("surName")} ${localStorage.getItem("secondName")}`;
+
+if (localStorage.getItem("toNotify")) {
+    const circle_number = document.createElement('div');
+    const text_with_circle = document.createElement('p');
+    circle_number.classList.add('circle-number');
+    text_with_circle.classList.add('text-with-circle');
+
+    async function getLengthData() {
+        const response = await fetch(`http://localhost:5294/api/Notify?id=${localStorage.getItem("client_id")}`, {
+            method: "GET",
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+        if (!response.ok) {
+            return;
+        }
+
+        const data = await response.json();
+
+        if (document.cookie === "") {
+            const dataLength = data.length;
+            // document.cookie = `saveLength=${dataLength}`;
+            text_with_circle.textContent = dataLength;
+            prompt.appendChild(circle_number);
+            circle_number.append(text_with_circle)
+        }
+        else {
+            const dataLength = data.length;
+            const saveCookieLength = +document.cookie.split("=")[1].split("\"")[0];
+            const diff = dataLength - saveCookieLength;
+            if (diff > 0) {
+                text_with_circle.textContent = diff;
+                prompt.appendChild(circle_number);
+                circle_number.append(text_with_circle);
+                // document.cookie = `"saveLength=${dataLength}"`;
+            }
+            // else {
+            //     document.cookie = `"saveLength=${dataLength}"`;
+            // }
+        }
+    }
+    getLengthData();
+
+}
+
+function clearInputs() {
+    const list_inputs = Array.from(document.querySelectorAll('.form__input'));
+    list_inputs.push(document.querySelector('#comment'));
+    list_inputs.forEach(element => {
+        element.value = null;
+    });
+    document.querySelector("#routine-work").options.selectedIndex = 0;
+}
+function handleClick(event) {
+    const bid_li = document.querySelector('.' + event.currentTarget.className);
+    bid_types.forEach(element => {
+        switch (element) {
+            case "active":
+                if (bid_li.className == element) {
+                    renderBid(bid_li.className, event, urls[element])
+                }
+                break;
+            case "history":
+                if (bid_li.className == element) {
+                    renderBid(bid_li.className, event, urls[element])
+                }
+                break;
+        }
+    })
+
+}
+
 async function renderBid(bid_class, event, url) {
     const bid_li = document.querySelector(`.${bid_class}`);
     const response = await fetch(url, {
@@ -40,7 +108,7 @@ async function renderBid(bid_class, event, url) {
         if (!document.querySelector(`.bid_list`)) {
 
             const bid_list = document.createElement('ul');
-            const bid_view = document.querySelector('.container-bid-view');
+            const bid_view = document.querySelector('.container-bid-prompt');
             bid_list.classList.add('bid_list');
             bid_view.append(bid_list);
             data.forEach((element, index) => {
@@ -118,21 +186,6 @@ async function renderBid(bid_class, event, url) {
                                     div.append(pInfo);
                                     break;
                             }
-
-                            // if (key != "id") {
-                            //     const div = document.createElement('div');
-                            //     const pName = document.createElement('p');
-                            //     const pInfo = document.createElement('p');
-                            //     div.classList.add(key)
-                            //     pName.classList.add(`${key}_name`);
-                            //     pInfo.classList.add(`${key}_info`);
-                            //     pName.textContent = key;
-                            //     pInfo.textContent = element[key];
-                            //     bid_body.append(div);
-                            //     div.append(pName);
-                            //     div.append(pInfo);
-                            // }
-
                         });
                         bid_element.append(bid_body);
 
@@ -152,52 +205,19 @@ async function renderBid(bid_class, event, url) {
 }
 
 
-function handleClick(event) {
-
-    const bid_li = document.querySelector(`.` + event.currentTarget.className);
-    bid_types.forEach(element => {
-        switch (element) {
-            case "active":
-                if (bid_li.className == element) {
-
-                    renderBid(bid_li.className, event, urls[element]);
-                }
-                break;
-            case "history":
-                if (bid_li.className == element) {
-                    renderBid(bid_li.className, event, urls[element]);
-                }
-                break;
-        }
-    });
-
-}
-
-function deleteCookie(name) {
-    document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
-}
-
-btn_exit.addEventListener('click', () => {
-    localStorage.clear();
-    // deleteCookie("saveLength");
-    window.location.href = "index.html";
-});
-
-bid.addEventListener('click', (event) => {
-    container_bid_view.style.margin = `0 auto`;
-    container_prompt_view.style.margin = 0;
+bid.addEventListener('click', event => {
     const prompt_list = document.querySelector('.prompt_list');
     if (prompt_list !== null) {
         prompt_list.remove();
     }
     if (event.target == bid) {
-        if (!document.querySelector(`.bid_ul`)) {
+        if (!document.querySelector('.bid_ul')) {
             const bid_ul = document.createElement('ul');
-            bid_ul.classList.add(`bid_ul`);
+            bid_ul.classList.add('bid_ul');
             bid.parentNode.insertBefore(bid_ul, bid.nextSibling);
             bid_types.forEach(element => {
                 const bid_li = document.createElement('li');
-                bid_li.classList.add(element);
+                bid_li.classList.add(element)
                 switch (element) {
                     case "active":
                         bid_li.textContent = "Активные";
@@ -205,11 +225,11 @@ bid.addEventListener('click', (event) => {
                         break;
                     case "history":
                         bid_li.textContent = "История";
-                        bid_li.addEventListener('click', handleClick.bind(event));
+                        bid_li.addEventListener('click', handleClick.bind(event))
                         break;
                 }
                 bid_ul.append(bid_li);
-            });
+            })
         }
         else {
             const bid_ul = document.querySelector('.bid_ul');
@@ -218,58 +238,59 @@ bid.addEventListener('click', (event) => {
             bid_list.remove();
         }
     }
+
 })
 
 
-
-if (localStorage.getItem("toNotify")) {
-    const circle_number = document.createElement('div');
-    const text_with_circle = document.createElement('p');
-    circle_number.classList.add('circle-number');
-    text_with_circle.classList.add('text-with-circle');
-
-    async function getLengthData() {
-        const response = await fetch(`http://localhost:5294/api/Notify?id=${localStorage.getItem("client_id")}`, {
-            method: "GET",
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        });
-        if (!response.ok) {
-            return;
-        }
-
-        const data = await response.json();
-
-        if (document.cookie === "") {
-            const dataLength = data.length;
-            // document.cookie = `saveLength=${dataLength}`;
-            text_with_circle.textContent = dataLength;
-            prompt.appendChild(circle_number);
-            circle_number.append(text_with_circle)
-        }
-        else {
-            const dataLength = data.length;
-            const saveCookieLength = +document.cookie.split("=")[1].split("\"")[0];
-            const diff = dataLength - saveCookieLength;
-            if (diff > 0) {
-                text_with_circle.textContent = diff;
-                prompt.appendChild(circle_number);
-                circle_number.append(text_with_circle);
-                // document.cookie = `"saveLength=${dataLength}"`;
-            }
-            // else {
-            //     document.cookie = `"saveLength=${dataLength}"`;
-            // }
-        }
+const make_bid = document.querySelector('.registration');
+function showBidModal() {
+    const modalBackground = document.querySelector('.modalBackground');
+    if (modalBackground.style.display == '') {
+        modalBackground.style.display = 'grid';
+        document.querySelector('body').style.overflow = 'hidden';
     }
-    getLengthData();
+    modalBackground.addEventListener('click', (event) => {
+        if (event.target == modalBackground) {
+            modalBackground.style.display = '';
+            document.querySelector('body').style.overflow = 'visible';
+        }
+    })
+    modalForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        await fetch(`http://localhost:5294/api/Order`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(
+                {
+                    "Client_id": localStorage.getItem("client_id"),
+                    "Vin": document.querySelector('#vin-code').value,
+                    "StateNumber": document.querySelector('#gos-number').value,
+                    "MileAge": document.querySelector('#mileAge').value,
+                    "Description": document.querySelector('#comment').value,
+                    "Work": document.querySelector("#routine-work").options[document.querySelector("#routine-work").selectedIndex].innerText
+                }
+            )
+
+        })
+        modalBackground.style.display = '';
+        document.querySelector('body').style.overflow = 'visible';
+        if (document.querySelector("#routine-work").options[document.querySelector("#routine-work").selectedIndex].innerText != "Другое") {
+            setTimeout(function () {
+                location.reload()
+            }, 61000)
+        }
+    });
+    clearInputs();
 
 }
+make_bid.addEventListener('click', () => {
+    showBidModal();
+})
+
 
 prompt.addEventListener('click', event => {
-    container_prompt_view.style.margin = `0 auto`;
-    container_bid_view.style.margin = 0;
 
     let dataLength;
     fetch(`http://localhost:5294/api/Notify?id=${localStorage.getItem("client_id")}`)
@@ -302,6 +323,7 @@ prompt.addEventListener('click', event => {
 }
 );
 
+
 async function renderNotify(event, url) {
     const response = await fetch(url, {
         method: "GET",
@@ -316,7 +338,7 @@ async function renderNotify(event, url) {
     const data = await response.json();
     if (!document.querySelector(`.prompt_list`)) {
         const prompt_list = document.createElement('ul');
-        const prompt_view = document.querySelector('.container-prompt-view');
+        const prompt_view = document.querySelector('.container-bid-prompt');
         prompt_list.classList.add('prompt_list');
         prompt_view.append(prompt_list);
         data.forEach((element, index) => {
@@ -382,64 +404,7 @@ async function renderNotify(event, url) {
     }
 }
 
-
-
-
-
-
-
-
-const make_bid = document.querySelector('.registration');
-function showBidModal() {
-    const modal_hidden = document.querySelector('.modal-hidden');
-    const modal = document.querySelector('.modal');
-    const form = document.querySelector('.modal_form')
-    if (modal_hidden.style.display == '') {
-        modal_hidden.style.display = 'block';
-        modal_hidden.style.visibility = 'visible';
-        modal.style.opacity = 1;
-    }
-    modal_hidden.addEventListener('click', (event) => {
-        if (event.target == modal_hidden) {
-            modal_hidden.style.display = '';
-            modal_hidden.style.visibility = 'hidden';
-            modal.style.opacity = 0;
-        }
-    });
-    form.addEventListener('submit', async (event) => {
-        event.preventDefault();
-        await fetch(`http://localhost:5294/api/Order`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(
-                {
-                    "Client_id": localStorage.getItem("client_id"),
-                    "Vin": document.querySelector('#vin_code').value,
-                    "StateNumber": document.querySelector('#gos_number').value,
-                    "MileAge": document.querySelector('#mileAge').value,
-                    "Description": document.querySelector('#comment').value,
-                    "work": document.querySelector("#works").options[document.querySelector("#works").selectedIndex].innerText
-                }
-            )
-
-        })
-        modal_hidden.style.display = '';
-        modal_hidden.style.visibility = 'hidden';
-        modal.style.opacity = 0;
-        setTimeout(function () {
-            location.reload()
-        }, 61000)
-    });
-    document.querySelector('#gos_number').value = null;
-    document.querySelector('#vin_code').value = null;
-    document.querySelector('#works').value = null;
-    document.querySelector('#comment').value = null;
-    // setTimeout(render, 10000);
-
-}
-
-make_bid.addEventListener('click', () => {
-    showBidModal();
+btn_exit.addEventListener('click', () => {
+    localStorage.clear();
+    window.location.href = "index.html";
 });
