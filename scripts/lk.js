@@ -8,6 +8,7 @@ const prompt = document.querySelector('.prompt');
 const burger_btn = document.querySelector('.burger-menu__btn');
 const menu = document.querySelector('.menu');
 
+
 burger_btn.addEventListener('click', e => {
     if (menu.style.display == "") {
         menu.style.display = "flex";
@@ -68,7 +69,7 @@ function clearInputs() {
     list_inputs.forEach(element => {
         element.value = null;
     });
-    document.querySelector("#routine-work").options.selectedIndex = 0;
+    document.querySelector("#routine-work").value = "value0";
 }
 function handleClick(event) {
     const bid_li = document.querySelector('.' + event.currentTarget.className);
@@ -112,6 +113,7 @@ async function renderBid(bid_class, event, url) {
             bid_list.classList.add('bid_list');
             bid_view.append(bid_list);
             data.forEach((element, index) => {
+                let flag_work = 0;
                 const bid_element = document.createElement('li');
                 const bid_header = document.createElement('div');
                 bid_header.classList.add("bid_header");
@@ -181,14 +183,34 @@ async function renderBid(bid_class, event, url) {
                                     pInfo.classList.add(`${key}_info`);
                                     pName.textContent = "Регламетные Работы";
                                     pInfo.textContent = element[key];
+                                    if (element[key] !== "Другое") {
+                                        flag_work = 1;
+                                    }
                                     bid_body.append(div);
                                     div.append(pName);
                                     div.append(pInfo);
                                     break;
                             }
                         });
-                        bid_element.append(bid_body);
 
+                        bid_element.append(bid_body);
+                        if (url.includes("History") && flag_work == 1) {
+                            const repeat_btn = document.createElement('btn');
+                            repeat_btn.classList.add("repeat-btn")
+                            repeat_btn.innerHTML = `
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10 3V5C6.69419 5 4 7.69419 4 11C4 14.3058 6.69419 17 10 17C13.3058 17 16 14.3058 16 11C16 9.68663 15.5702 8.47277 14.8503 7.48307L13.8997 8.43359C14.3836 9.16925 14.6667 10.05 14.6667 11C14.6667 13.5852 12.5852 15.6667 10 15.6667C7.41477 15.6667 5.33333 13.5852 5.33333 11C5.33333 8.41477 7.41477 6.33333 10 6.33333V8.33333L13.3333 5.66667L10 3Z" fill="white"/>
+                            </svg>
+        
+                            `
+                            bid_body.append(repeat_btn);
+                            repeat_btn.addEventListener("click", () => {
+                                const isRepeat = confirm("Вы действительно хотите заменить поля вашей будущей заявки содержимым этой заявки?");
+                                if (isRepeat) {
+                                    showEditedBidModal(element);
+                                }
+                            });
+                        }
                     }
                 });
 
@@ -203,6 +225,8 @@ async function renderBid(bid_class, event, url) {
         }
     }
 }
+
+
 
 
 bid.addEventListener('click', event => {
@@ -241,7 +265,66 @@ bid.addEventListener('click', event => {
 
 })
 
+function showEditedBidModal(element) {
+    const modalBackground = document.querySelector('.modalBackground');
+    if (modalBackground.style.display == '') {
+        modalBackground.style.display = 'grid';
+        document.querySelector('body').style.overflow = 'hidden';
 
+    }
+    Object.keys(element).forEach(key => {
+
+        switch (key) {
+            case "vin":
+                document.getElementById('vin-code').value = element[key];
+                break;
+            case "stateNumber":
+                document.getElementById('gos-number').value = element[key];
+                break;
+
+            case "work":
+                document.querySelector("#routine-work").options[document.querySelector("#routine-work").selectedIndex].innerText = element[key];
+                break;
+            case "mileAge":
+                document.getElementById('mileAge').value = element[key];
+                break;
+        }
+    });
+    modalBackground.addEventListener('click', (event) => {
+        if (event.target == modalBackground) {
+            modalBackground.style.display = '';
+            document.querySelector('body').style.overflow = 'visible';
+        }
+    })
+    modalForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        await fetch(`http://localhost:5294/api/Order`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(
+                {
+                    "Client_id": localStorage.getItem("client_id"),
+                    "Vin": document.querySelector('#vin-code').value,
+                    "StateNumber": document.querySelector('#gos-number').value,
+                    "MileAge": document.querySelector('#mileAge').value,
+                    "Description": document.querySelector('#comment').value,
+                    "Work": document.querySelector("#routine-work").options[document.querySelector("#routine-work").selectedIndex].innerText
+                }
+            )
+
+        })
+        modalBackground.style.display = '';
+        document.querySelector('body').style.overflow = 'visible';
+        if (document.querySelector("#routine-work").options[document.querySelector("#routine-work").selectedIndex].innerText != "Другое") {
+            setTimeout(function () {
+                location.reload()
+            }, 5000)
+        }
+    });
+
+}
 const make_bid = document.querySelector('.registration');
 function showBidModal() {
     const modalBackground = document.querySelector('.modalBackground');
@@ -279,7 +362,7 @@ function showBidModal() {
         if (document.querySelector("#routine-work").options[document.querySelector("#routine-work").selectedIndex].innerText != "Другое") {
             setTimeout(function () {
                 location.reload()
-            }, 61000)
+            }, 5000)
         }
     });
     clearInputs();

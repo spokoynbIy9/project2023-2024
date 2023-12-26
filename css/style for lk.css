@@ -152,8 +152,32 @@ body {
     line-height: normal;
     align-self: center;
     cursor: pointer;
+    transition: color 0.1s linear, background-color 0.1s linear;
 }
 
+.form__btn:focus-visible {
+    background-color: #890000;
+    color: #000;
+}
+
+.form__btn:hover:not(:focus-visible) {
+    background-color: #890000;
+    color: #000;
+}
+
+.form__btn:active:not(:focus-visible) {
+    background-color: #890000;
+    color: #fff;
+}
+
+
+/*repeat btn*/
+.repeat-btn {
+    cursor: pointer;
+    margin: 0 auto;
+    background-color: green;
+    border-radius: 5px;
+}
 
 /* header */
 
@@ -299,6 +323,13 @@ body {
     color: #000;
     cursor: pointer;
 }
+
+/* bid_li*/
+
+/* .bid_li {
+    display: grid;
+    grid-template-columns: 95% 5%;
+} */
 
 /* bid_list prompt_list*/
 

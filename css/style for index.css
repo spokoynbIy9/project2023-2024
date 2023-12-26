@@ -43,7 +43,41 @@ body {
     line-height: normal;
     gap: 2px;
     display: flex;
+    transition: color .1s linear;
 }
+
+.header__info-link svg {
+    fill: #d9d9d9;
+    transition: fill .1s linear;
+}
+
+.header__info-link:focus-visible {
+    outline: 1px solid #000;
+    color: #fff;
+}
+
+.header__info-link:focus-visible svg {
+    fill: #fff;
+}
+
+.header__info-link:hover:not(:focus-visible) {
+    color: #fff;
+}
+
+.header__info-link:hover:not(:focus-visible) svg {
+    fill: #fff;
+}
+
+
+.header__info-link:active:not(:focus-visible) {
+    color: #ADADAD;
+}
+
+.header__info-link:active:not(:focus-visible) svg {
+    fill: #ADADAD;
+}
+
+
 
 .header__info {
     display: flex;
@@ -92,6 +126,24 @@ body {
     line-height: normal;
     padding: 8px 10px;
     cursor: pointer;
+    transition: border-color .1s linear, background-color .1s linear, color 0.1s linear;
+}
+
+.btn:focus-visible {
+    border-color: #737373;
+    outline: none;
+}
+
+.btn:hover:not(:focus-visible) {
+    border-color: #d9d9d9;
+    background-color: #fff;
+    color: #292525;
+}
+
+.btn:active:not(:focus-visible) {
+    border-color: #ADADAD;
+    background-color: #ADADAD;
+    color: #292525;
 }
 
 .nav__btn {
@@ -102,10 +154,27 @@ body {
     border-radius: 8px;
 }
 
-.nav__list-items {
+.nav__items-link {
     font-weight: 600;
     font-size: 20px;
     line-height: normal;
+    transition: color .1s linear;
+}
+
+.nav__items-link:focus-visible {
+    color: #292525;
+    text-decoration: underline #292525;
+    outline: none;
+}
+
+.nav__items-link:hover:not(:focus-visible) {
+    color: #292525;
+    text-decoration: underline #292525;
+}
+
+.nav__items-link:active:not(:focus-visible) {
+    color: #000;
+    text-decoration: underline #000;
 }
 
 /* about */
@@ -474,12 +543,59 @@ body {
     display: flex;
     align-items: center;
     gap: 5px;
+    transition: color .1s linear;
 }
 
-.footer__menu-item {
+.footer__contacts-link svg {
+    fill: #d9d9d9;
+    transition: fill .1s linear;
+}
+
+.footer__contacts-link:focus-visible {
+    outline: 1px solid #000;
+    color: #fff;
+}
+
+.footer__contacts-link:focus-visible svg {
+    fill: #fff;
+}
+
+.footer__contacts-link:hover:not(:focus-visible) {
+    color: #fff;
+}
+
+.footer__contacts-link:hover:not(:focus-visible) svg {
+    fill: #fff;
+}
+
+
+.footer__contacts-link:active:not(:focus-visible) {
+    color: #ADADAD;
+}
+
+.footer__contacts-link:active:not(:focus-visible) svg {
+    fill: #ADADAD;
+}
+
+
+.footer__item-link {
     color: #d9d9d9;
     font-size: 15px;
     line-height: normal;
+    transition: color 0.1s linear;
+}
+
+.footer__item-link:focus-visible {
+    color: #ADADAD;
+    outline: transparent;
+}
+
+.footer__item-link:hover:not(:focus-visible) {
+    color: #adadad;
+}
+
+.footer__item-link:active:not(:focus-visible) {
+    color: #fff;
 }
 
 .footer__down-hr {
@@ -622,6 +738,22 @@ body {
     line-height: normal;
     align-self: center;
     cursor: pointer;
+    transition: color 0.1s linear, background-color 0.1s linear;
+}
+
+.form__btn:focus-visible {
+    background-color: #890000;
+    color: #000;
+}
+
+.form__btn:hover:not(:focus-visible) {
+    background-color: #890000;
+    color: #000;
+}
+
+.form__btn:active:not(:focus-visible) {
+    background-color: #890000;
+    color: #fff;
 }
 
 /* links in modal*/
@@ -744,7 +876,7 @@ body {
         gap: 10px;
     }
 
-    .nav__list-items {
+    .nav__items-link {
         font-size: 15px;
     }
 
@@ -776,7 +908,7 @@ body {
         font-size: 10px;
     }
 
-    .nav__list-items {
+    .nav__items-link {
         font-size: 10px;
     }
 
@@ -784,7 +916,7 @@ body {
         font-size: 8px;
     }
 
-    .footer__menu-item {
+    .footer__item-link {
         font-size: 10px;
     }
 

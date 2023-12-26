@@ -4,6 +4,23 @@ const list_btns = Array.from(document.querySelectorAll('.btn'));
 let link_reg = document.querySelector('.link-reg');
 var temp = null;
 const header = document.querySelector('.header');
+const stock_cardTimes = document.querySelectorAll('.section-stock__items-time');
+
+stock_cardTimes.forEach(element => {
+    setInterval(function () {
+        let now = new Date();
+        let d = 30 - now.getDate();
+        let h = 24 - now.getHours();
+        let m = 60 - now.getMinutes();
+        element.textContent = d + 'д : ' + h + 'ч : ' + m + "м";
+
+        if (d == 0 && h == 0 && m == 0) {
+            document.location.reload();
+        }
+
+    }, 1000);
+
+});
 
 list_btns.forEach(element => {
     element.addEventListener('click', (event) => {
@@ -168,11 +185,12 @@ function submitForm() {
                     body: JSON.stringify(
                         {
                             "name": document.querySelector('#fio').value,
-                            "telegram": "1",
+                            "telegram": document.querySelector("#username-telegram").value,
                             "phone": document.querySelector('#phone').value,
                             "description": document.querySelector('#comment').value,
                             "vin": document.querySelector('#vin-code').value,
-                            "stateNumber": document.querySelector('#gos-number').value
+                            "stateNumber": document.querySelector('#gos-number').value,
+                            "work": document.querySelector("#routine-work").options[document.querySelector("#routine-work").selectedIndex].innerText
                         }
                     )
                 })
@@ -218,7 +236,7 @@ function makeRegModal() {
             </li>
             <li class="form__list-items">
                 <label for="password" class="form__label">Пароль</label>
-                <input type="text" name="" id="password" class="form__input">
+                <input type="password" name="" id="password" class="form__input">
             </li>
         </ul>
         <button class="form__btn">Зарегистрироваться</button>
@@ -237,7 +255,7 @@ function makeLogModal() {
             </li>
             <li class="form__list-items">
                 <label for="password" class="form__label">Пароль</label>
-                <input type="text" name="" id="password" class="form__input">
+                <input type="password" name="" id="password" class="form__input">
             </li>
         </ul>
         <button class="form__btn">Войти</button>
@@ -266,8 +284,8 @@ function makeApplicationModal() {
                 <input type="text" id="phone" class="form__input">
             </li>
             <li class="form__list-items">
-                <label for="mail" class="form__label">Адрес электронной почты</label>
-                <input type="text" name="" id="mail" class="form__input">
+                <label for="username-telegram" class="form__label">Telegram Username</label>
+                <input type="text" name="" id="username-telegram" class="form__input">
             </li>
             <li class="form__list-items">
                 <label for="" class="form__label">Данные об автомобиле</label>
